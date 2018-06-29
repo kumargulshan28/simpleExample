@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+  <!-- Handaler mapping configuration -->
+  <bean id="suhm" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+  <property name="mappings">
+  <props>
+  <prop key="home.htm">wc</prop>
+  <prop key="AboutUs.htm">ab</prop>
+  <prop key="login.htm">lg</prop>
+  </props>
+  </property>
+  </bean>
+  
+  <!-- Controller Configuration -->
+  <bean id="wc" class="com.theos.controller.TheOs_Controller"/>
+  <bean id="ab" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+  <property name="viewName" value="AboutUs"/>
+  </bean>
+  
+  <!-- Configuration of ViewResovler -->
+  <bean id="irvr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+  <property name="prefix" value="/WEB-INF/pages/"/>
+  <property name="suffix" value=".jsp"/>
+  </bean>
+   </beans>
